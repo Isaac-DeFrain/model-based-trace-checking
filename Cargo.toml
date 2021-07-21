@@ -1,0 +1,12 @@
+[package]
+name = "mbtc"
+version = "0.1.0"
+authors = ["isaac"]
+
+[dependencies]
+log = "0.4.0"
+log4rs = "1.0.0"
+test-logger = "0.1.0"
+log4rs-rolling-file = "0.2.0"
+chrono = "0.4"
+rand = "0.8.4"
