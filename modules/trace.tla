@@ -20,7 +20,9 @@ Spec == Safety /\ WF_x(Next)
 
 ========================
 
----- MODULE Trace1 ----
+\* module for checking multiple traces
+
+---- MODULE TracesReader ----
 
 EXTENDS TLC
 
@@ -57,8 +59,9 @@ TraceBehavior == Init /\ [][Next]_<<log, i, x>>
 
 THEOREM TraceBehavior => Model!Safety
 
-=======================
+=============================
 
+\* instantiate the parser and Trace
 INSTANCE trace_def
 
 VARIABLES x, i
@@ -77,7 +80,7 @@ NextTrace ==
     /\ i' = i + 1
     /\ ReadNext
 
----- MODULE Trace2 ----
+---- MODULE TraceReader ----
 
 Compose(NextA, varsA, NextB, varsB) ==
     \/ NextA /\ NextB
@@ -100,8 +103,10 @@ NotTraceFinished == ~TraceFinished
 \* This should not be a theorem
 Check == ComposedSpec => []NotTraceFinished
 
-=======================
+\* To check this, we declare NotTraceFinished as an invariant and expect an error/counterexample
 
-INSTANCE Trace2 WITH xx <- x
+============================
+
+INSTANCE TraceReader WITH xx <- x
 
 ======================

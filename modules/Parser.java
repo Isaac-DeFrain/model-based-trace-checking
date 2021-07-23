@@ -5,11 +5,12 @@ import java.io.*;
 import java.util.*;
 
 public class Parser {
+  // @TLAPlusOperator(identifier = "parse", module = "Parser")
   public static IValue parse(final StringValue absolutePath) throws IOException {
     BufferedReader br = new BufferedReader(new FileReader(absolutePath.val.toString()));
     List<Value> values = new ArrayList<>();
-    String line = br.readLine();
     try {
+      String line = br.readLine();
       while (line != null) {
         int x = Integer.parseInt(line);
         values.add(IntValue.gen(x));

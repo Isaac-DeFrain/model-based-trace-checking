@@ -1,10 +1,10 @@
 # model-based-trace-checking
 
-This is a very simple POC for model-based trace-checking from Rust.
+This is a very simple POC for model-based trace-checking from Rust. We closely follow Ron Pressler's [*Verifying Software Traces Against a Formal Specification with TLA+ and TLC*](https://pron.github.io/files/Trace.pdf).
 
 The Rust program `src/main.rs` simulates a counter with stuttering steps and generates a new log file with each run.
 
-Once log files have been produced, they can be parsed into TLA+ as a sequence of values with the `parse` function. This sequence represents the trace of the execution. This behavior is then checked against the specification by checking the model. Oddly enough, if the behavior is *valid*, TLC will report a violation of the `NotTraceFinished` invariant and provide the given behavior as a conterexample. If the behavior is *invalid*, TLC will report a successful model check.
+Once log files have been produced, they can be parsed into TLA+ as a sequence of values with the `parse` function. This sequence represents the trace of the execution. This behavior is then checked against the specification by checking that the model *violates* the specified invariant. Oddly enough, if the behavior (supplied by the trace) is *valid*, TLC will report a violation of the `NotTraceFinished` invariant and provide the given behavior as a conterexample. If the behavior is *invalid*, TLC will report a successful model check.
 
 ## Running the code
 
