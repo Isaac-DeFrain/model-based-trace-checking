@@ -17,7 +17,7 @@ fn main() -> Result<(), SetLoggerError> {
     const DATE_FMT: &str = "%Y-%m-%d_%H:%M:%S";  
     let level = log::LevelFilter::Info;
     let date = Local::now().format(DATE_FMT).to_string();
-    let file_path = format!("./log/{}.log", &date);
+    let file_path = format!("./log/{}.txt", &date);
 
     // Logging to log file.
     let logfile = FileAppender::builder()
@@ -44,7 +44,7 @@ fn main() -> Result<(), SetLoggerError> {
 
     // Simulation of a counter taking an arbitrary number of steps
     let n: u8 = thread_rng().gen();
-    init_incr(n);
+    counter_with_logging(n);
 
     Ok(())
 }
@@ -55,13 +55,18 @@ pub fn log_event<T: Display>(x: &T) -> () {
 }
 
 // simple counter implementation
-pub fn init_incr(n: u8) -> () {
+pub fn counter_with_logging(n: u8) -> () {
   let x = 0;
   fn incr(n: u8, mut x: i32) -> () {
     if n > 0 {
+      let b: bool = thread_rng().gen();
       log_event(&x);
-      x += 1;
-      incr(n - 1, x)
+      if b {
+        x += 1;
+        incr(n - 1, x)
+      } else {
+        incr(n, x);
+      }
     } else {
       log_event(&x)
     }
