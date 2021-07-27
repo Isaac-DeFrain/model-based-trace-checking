@@ -1,22 +1,40 @@
 ---- MODULE trace ----
 
-EXTENDS Naturals, Sequences
+EXTENDS Naturals, Sequences, TLC
 
 \* simple counter specification
 
 ---- MODULE counter ----
 
-VARIABLE x
+CONSTANT a
 
-TypeOK == x \in Nat
+VARIABLE x, y
 
-Init == x = 0
+vars == <<x, y>>
 
-Next == x' = x + 1
+TypeOK ==
+    /\ x \in Nat
+    /\ y \in BOOLEAN \cup {a}
 
-Safety == Init /\ [][Next]_x
+Init ==
+    /\ x = 0
+    /\ y = a
 
-Spec == Safety /\ WF_x(Next)
+A ==
+    /\ x <= 20
+    /\ x' = x + 1
+    /\ UNCHANGED y
+
+B ==
+    /\ x > 20
+    /\ x' = x + 1
+    /\ y' = (x % 2 = 0)
+
+Next == A \/ B
+
+Safety == Init /\ [][Next]_vars
+
+Spec == Safety /\ WF_vars(Next)
 
 ========================
 
@@ -26,24 +44,30 @@ Spec == Safety /\ WF_x(Next)
 
 EXTENDS TLC
 
-CONSTANT Traces
+CONSTANTS a, Traces
 
-VARIABLE x
+VARIABLE x, y
 
 Model == INSTANCE counter
 
 VARIABLES
-    log,
-    i
+    log,    \* log file index
+    i       \* line index within a log file
 
 \* trace from [log]
 Trace == Traces[log]
 
 \* Read the [log] record at index i
-Read == x = Trace[i]
+Read ==
+    LET Rec == Trace[i] IN
+    /\ x = Rec[1]
+    /\ y = Rec[2]
 
 \* Read the next [log] record (index i')
-ReadNext == x' = Trace[i']
+ReadNext ==
+    LET Rec == Trace[i'] IN
+    /\ x' = Rec[1]
+    /\ y' = Rec[2]
 
 Init ==
     /\ log \in DOMAIN Traces
@@ -53,9 +77,10 @@ Init ==
 Next ==
     /\ i < Len(Trace)
     /\ i' = i + 1
+    /\ ReadNext
     /\ UNCHANGED log \* each trace follows a single log
 
-TraceBehavior == Init /\ [][Next]_<<log, i, x>>
+TraceBehavior == Init /\ [][Next]_<<log, i, x, y>>
 
 THEOREM TraceBehavior => Model!Safety
 
@@ -64,19 +89,28 @@ THEOREM TraceBehavior => Model!Safety
 \* instantiate the parser and Trace
 INSTANCE trace_def
 
-VARIABLES x, i
+CONSTANT a
 
-tvars == <<x, i>>
+VARIABLES x, y, i
 
-Read == x = Trace[i]
+tvars == <<x, y, i>>
 
-ReadNext == x' = Trace[i']
+Read ==
+    LET Rec == Trace[i] IN
+    /\ x = Rec[1]
+    /\ y = Rec[2]
+
+ReadNext ==
+    LET Rec == Trace[i'] IN
+    /\ x' = Rec[1]
+    /\ y' = Rec[2]
 
 InitTrace ==
     /\ i = 1
     /\ Read
 
 NextTrace ==
+    /\ i < Len(Trace)
     /\ i' = i + 1
     /\ ReadNext
 
@@ -87,14 +121,16 @@ Compose(NextA, varsA, NextB, varsB) ==
     \/ UNCHANGED varsB /\ NextA
     \/ UNCHANGED varsA /\ NextB
 
-VARIABLE xx
+VARIABLE xx, yy
+
+vars == <<xx, yy>>
 
 Model == INSTANCE counter
 
 ComposedSpec ==
     /\ Model!Init
     /\ InitTrace
-    /\ [][Compose(Model!Next, xx, NextTrace, tvars)]_<<xx, tvars>>
+    /\ [][Compose(Model!Next, vars, NextTrace, tvars)]_<<vars, tvars>>
 
 TraceFinished == i >= Len(Trace)
 
@@ -107,6 +143,6 @@ Check == ComposedSpec => []NotTraceFinished
 
 ============================
 
-INSTANCE TraceReader WITH xx <- x
+INSTANCE TraceReader WITH xx <- x, yy <- y
 
 ======================

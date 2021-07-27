@@ -50,26 +50,77 @@ fn main() -> Result<(), SetLoggerError> {
 }
 
 // state logging event
-pub fn log_event<T: Display>(x: &T) -> () {
-  info!("{}", x)
+pub fn log_state<T, U>(st: &State<T, U>) -> ()
+where T: Display, U: Display
+{
+  // info!("{}", st.json_of_state().as_str())
+  info!("{}", st.str_of_state().as_str())
 }
 
 // simple counter implementation
 pub fn counter_with_logging(n: u8) -> () {
-  let x = 0;
-  fn incr(n: u8, mut x: i32) -> () {
+  let mut st = State { x: 0, y: Y::ModelValue(String::from("a")) };
+  fn step(n: u8, st: &mut State<i32, bool>) -> () {
     if n > 0 {
       let b: bool = thread_rng().gen();
-      log_event(&x);
+      log_state(&st);
       if b {
-        x += 1;
-        incr(n - 1, x)
+        st.step();
+        step(n - 1, st)
       } else {
-        incr(n, x);
+        step(n, st);
       }
     } else {
-      log_event(&x)
+      log_state(&st)
     }
   }
-  incr(n, x)
+  step(n, &mut st)
+}
+
+#[derive(PartialEq, Eq, Debug)]
+pub enum Y<T: Display> {
+  ModelValue(String),
+  Value(T)
+}
+
+#[derive(PartialEq, Eq, Debug)]
+pub struct State<T, U>
+where T: Display, U: Display
+{
+  x: T,
+  y: Y<U>
+}
+
+#[allow(dead_code)]
+impl<T, U> State<T, U>
+where T: Display, U: Display
+{
+  fn json_of_state(&self) -> String {
+    let mut acc = String::from("{ ");
+    acc.push_str(format!("\"x\" : {} }}", self.x).as_str());
+    acc
+  }
+
+  fn str_of_state(&self) -> String {
+    let mut acc = String::new();
+    acc.push_str(format!("{}", self.x).as_str());
+    acc.push_str(", ");
+    match &self.y {
+      Y::ModelValue(v) => acc.push_str(v.as_str()),
+      Y::Value(v) => acc.push_str(format!("{}", v).as_str()),
+    };
+    acc
+  }
+}
+
+impl State<i32, bool> {
+  fn step(&mut self) {
+    self.y = if self.x > 20 {
+      let y = Y::Value(self.x % 2 == 0);
+      y
+    } else {
+      Y::ModelValue(String::from("a"))
+    };
+    self.x += 1;
+  }
 }

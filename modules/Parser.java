@@ -12,8 +12,17 @@ public class Parser {
     try {
       String line = br.readLine();
       while (line != null) {
-        int x = Integer.parseInt(line);
-        values.add(IntValue.gen(x));
+        // split string on seperator
+        String[] lnarr = line.split(", ");
+        // [vals] will hold the tuple of values for each state
+        List<Value> vals = new ArrayList<>();
+        vals.add(IntValue.gen(Integer.parseInt(lnarr[0])));
+        vals.add(
+          lnarr[1].equals("a") ?
+          ModelValue.make(lnarr[1]) :
+          new BoolValue(Boolean.parseBoolean(lnarr[1])));
+        // add the corresponding state tuple to the behavior
+        values.add(new TupleValue(vals.toArray(new Value[0])));
         line = br.readLine();
       }
     } finally {
