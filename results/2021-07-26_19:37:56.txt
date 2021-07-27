@@ -1,0 +1,601 @@
+TLC2 Version 2.14 of 10 July 2019 (rev: 0cae24f)
+Running breadth-first search Model-Checking with fp 3 and seed 7947772063512472994 with 1 worker on 12 cores with 7118MB heap and 64MB offheap memory [pid: 24621] (Linux 4.19.0-13-amd64 amd64, Debian 11.0.11 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file /home/isaac/Documents/Viable_Systems/pocs/trace-checking/tla/trace.tla
+Parsing file /tmp/Naturals.tla
+Parsing file /tmp/Sequences.tla
+Parsing file /tmp/TLC.tla
+Parsing file /home/isaac/Documents/Viable_Systems/pocs/trace-checking/tla/trace_def.tla
+Parsing file /home/isaac/Documents/Viable_Systems/pocs/trace-checking/tla/Parser.tla
+Parsing file /tmp/FiniteSets.tla
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module Parser
+Semantic processing of module trace_def
+Semantic processing of module trace
+Starting... (2021-07-27 12:07:35)
+Loading parse operator override from file:/home/isaac/Documents/Viable_Systems/pocs/trace-checking/tla/Parser.class with signature: <Java Method: public static tlc2.value.IValue Parser.parse(tlc2.value.impl.StringValue) throws java.io.IOException>.
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2021-07-27 12:07:35.
+Error: Invariant NotTraceFinished is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ i = 1
+/\ x = 0
+/\ y = a
+
+State 2: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 2
+/\ x = 0
+/\ y = a
+
+State 3: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 3
+/\ x = 0
+/\ y = a
+
+State 4: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 4
+/\ x = 0
+/\ y = a
+
+State 5: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 5
+/\ x = 1
+/\ y = a
+
+State 6: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 6
+/\ x = 2
+/\ y = a
+
+State 7: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 7
+/\ x = 2
+/\ y = a
+
+State 8: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 8
+/\ x = 3
+/\ y = a
+
+State 9: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 9
+/\ x = 4
+/\ y = a
+
+State 10: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 10
+/\ x = 4
+/\ y = a
+
+State 11: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 11
+/\ x = 4
+/\ y = a
+
+State 12: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 12
+/\ x = 5
+/\ y = a
+
+State 13: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 13
+/\ x = 6
+/\ y = a
+
+State 14: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 14
+/\ x = 7
+/\ y = a
+
+State 15: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 15
+/\ x = 8
+/\ y = a
+
+State 16: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 16
+/\ x = 9
+/\ y = a
+
+State 17: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 17
+/\ x = 10
+/\ y = a
+
+State 18: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 18
+/\ x = 10
+/\ y = a
+
+State 19: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 19
+/\ x = 10
+/\ y = a
+
+State 20: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 20
+/\ x = 10
+/\ y = a
+
+State 21: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 21
+/\ x = 11
+/\ y = a
+
+State 22: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 22
+/\ x = 12
+/\ y = a
+
+State 23: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 23
+/\ x = 13
+/\ y = a
+
+State 24: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 24
+/\ x = 13
+/\ y = a
+
+State 25: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 25
+/\ x = 14
+/\ y = a
+
+State 26: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 26
+/\ x = 14
+/\ y = a
+
+State 27: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 27
+/\ x = 14
+/\ y = a
+
+State 28: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 28
+/\ x = 14
+/\ y = a
+
+State 29: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 29
+/\ x = 14
+/\ y = a
+
+State 30: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 30
+/\ x = 14
+/\ y = a
+
+State 31: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 31
+/\ x = 14
+/\ y = a
+
+State 32: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 32
+/\ x = 14
+/\ y = a
+
+State 33: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 33
+/\ x = 14
+/\ y = a
+
+State 34: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 34
+/\ x = 14
+/\ y = a
+
+State 35: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 35
+/\ x = 15
+/\ y = a
+
+State 36: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 36
+/\ x = 15
+/\ y = a
+
+State 37: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 37
+/\ x = 16
+/\ y = a
+
+State 38: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 38
+/\ x = 17
+/\ y = a
+
+State 39: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 39
+/\ x = 18
+/\ y = a
+
+State 40: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 40
+/\ x = 18
+/\ y = a
+
+State 41: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 41
+/\ x = 18
+/\ y = a
+
+State 42: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 42
+/\ x = 18
+/\ y = a
+
+State 43: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 43
+/\ x = 19
+/\ y = a
+
+State 44: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 44
+/\ x = 19
+/\ y = a
+
+State 45: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 45
+/\ x = 19
+/\ y = a
+
+State 46: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 46
+/\ x = 19
+/\ y = a
+
+State 47: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 47
+/\ x = 20
+/\ y = a
+
+State 48: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 48
+/\ x = 20
+/\ y = a
+
+State 49: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 49
+/\ x = 20
+/\ y = a
+
+State 50: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 50
+/\ x = 20
+/\ y = a
+
+State 51: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 51
+/\ x = 20
+/\ y = a
+
+State 52: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 52
+/\ x = 20
+/\ y = a
+
+State 53: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 53
+/\ x = 20
+/\ y = a
+
+State 54: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 54
+/\ x = 20
+/\ y = a
+
+State 55: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 55
+/\ x = 21
+/\ y = a
+
+State 56: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 56
+/\ x = 22
+/\ y = FALSE
+
+State 57: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 57
+/\ x = 22
+/\ y = FALSE
+
+State 58: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 58
+/\ x = 23
+/\ y = TRUE
+
+State 59: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 59
+/\ x = 24
+/\ y = FALSE
+
+State 60: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 60
+/\ x = 25
+/\ y = TRUE
+
+State 61: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 61
+/\ x = 26
+/\ y = FALSE
+
+State 62: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 62
+/\ x = 26
+/\ y = FALSE
+
+State 63: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 63
+/\ x = 26
+/\ y = FALSE
+
+State 64: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 64
+/\ x = 27
+/\ y = TRUE
+
+State 65: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 65
+/\ x = 27
+/\ y = TRUE
+
+State 66: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 66
+/\ x = 27
+/\ y = TRUE
+
+State 67: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 67
+/\ x = 28
+/\ y = FALSE
+
+State 68: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 68
+/\ x = 29
+/\ y = TRUE
+
+State 69: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 69
+/\ x = 30
+/\ y = FALSE
+
+State 70: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 70
+/\ x = 31
+/\ y = TRUE
+
+State 71: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 71
+/\ x = 32
+/\ y = FALSE
+
+State 72: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 72
+/\ x = 32
+/\ y = FALSE
+
+State 73: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 73
+/\ x = 33
+/\ y = TRUE
+
+State 74: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 74
+/\ x = 33
+/\ y = TRUE
+
+State 75: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 75
+/\ x = 34
+/\ y = FALSE
+
+State 76: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 76
+/\ x = 34
+/\ y = FALSE
+
+State 77: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 77
+/\ x = 35
+/\ y = TRUE
+
+State 78: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 78
+/\ x = 36
+/\ y = FALSE
+
+State 79: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 79
+/\ x = 36
+/\ y = FALSE
+
+State 80: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 80
+/\ x = 37
+/\ y = TRUE
+
+State 81: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 81
+/\ x = 38
+/\ y = FALSE
+
+State 82: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 82
+/\ x = 38
+/\ y = FALSE
+
+State 83: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 83
+/\ x = 39
+/\ y = TRUE
+
+State 84: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 84
+/\ x = 39
+/\ y = TRUE
+
+State 85: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 85
+/\ x = 40
+/\ y = FALSE
+
+State 86: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 86
+/\ x = 40
+/\ y = FALSE
+
+State 87: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 87
+/\ x = 41
+/\ y = TRUE
+
+State 88: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 88
+/\ x = 41
+/\ y = TRUE
+
+State 89: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 89
+/\ x = 41
+/\ y = TRUE
+
+State 90: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 90
+/\ x = 42
+/\ y = FALSE
+
+State 91: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 91
+/\ x = 43
+/\ y = TRUE
+
+State 92: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 92
+/\ x = 43
+/\ y = TRUE
+
+State 93: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 93
+/\ x = 43
+/\ y = TRUE
+
+State 94: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 94
+/\ x = 44
+/\ y = FALSE
+
+State 95: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 95
+/\ x = 45
+/\ y = TRUE
+
+State 96: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 96
+/\ x = 46
+/\ y = FALSE
+
+State 97: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 97
+/\ x = 46
+/\ y = FALSE
+
+State 98: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 98
+/\ x = 46
+/\ y = FALSE
+
+State 99: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 99
+/\ x = 46
+/\ y = FALSE
+
+State 100: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 100
+/\ x = 47
+/\ y = TRUE
+
+State 101: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 101
+/\ x = 47
+/\ y = TRUE
+
+State 102: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 102
+/\ x = 47
+/\ y = TRUE
+
+State 103: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 103
+/\ x = 48
+/\ y = FALSE
+
+State 104: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 104
+/\ x = 48
+/\ y = FALSE
+
+State 105: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 105
+/\ x = 49
+/\ y = TRUE
+
+State 106: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 106
+/\ x = 50
+/\ y = FALSE
+
+State 107: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 107
+/\ x = 50
+/\ y = FALSE
+
+State 108: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 108
+/\ x = 51
+/\ y = TRUE
+
+State 109: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 109
+/\ x = 52
+/\ y = FALSE
+
+State 110: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 110
+/\ x = 53
+/\ y = TRUE
+
+State 111: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 111
+/\ x = 53
+/\ y = TRUE
+
+State 112: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 112
+/\ x = 54
+/\ y = FALSE
+
+State 113: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 113
+/\ x = 55
+/\ y = TRUE
+
+State 114: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 114
+/\ x = 55
+/\ y = TRUE
+
+State 115: <Action line 146, col 1 to line 146, col 42 of module trace>
+/\ i = 115
+/\ x = 56
+/\ y = FALSE
+
+115 states generated, 115 distinct states found, 0 states left on queue.
+The depth of the complete state graph search is 115.
+The average outdegree of the complete state graph is 1 (minimum is 1, the maximum 1 and the 95th percentile is 1).
+Finished in 00s at (2021-07-27 12:07:35)

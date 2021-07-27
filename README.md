@@ -10,34 +10,28 @@ Once log files have been produced, they can be parsed into TLA+ as a sequence of
 
 Clone the repo
 
-```
+```bash
 $ git clone https://github.com/Isaac-DeFrain/model-based-trace-checking.git
 ```
 
 From the `src` directory, run the program
 
-```
+```bash
 $ cd model-based-trace-checking/src
 $ cargo run
 ```
 
-A new log file will be generated in the `log` directory. Copy the name of this file. Go to the `modules` directory and change the path supplied to `parse` in the definition of `Trace` in the `trace_def.tla` module to the copied log name.
+A new log file will be generated in the `log` directory. Might as well do `cargo run` a few more times to generate multiple log files.
 
-```
----- MODULE trace_def ----
+Now we have some traces logged and we need to check if they conform to the `CombinedSpec` spec.
 
-EXTENDS Naturals, Sequences, Parser
+As mentioned above, the desired TLC output is an *error* along with a counterexample (this is just the supplied trace). If the model check is successful, then the behavior *does not* conform to the specification.
 
-Trace == parse("../log/<paste_the_name_of_log_file_here>.txt")
+Fortunately, this process has been automated! All you need to do is navigate to the `automate` dir and run the python code there:
 
-==========================
-```
-
-Finally, to check conformance of this trace with `CombinedSpec`, run TLC on `trace.tla` without deadlock checking.
-
-```
-$ cd modules
-$ tlc trace.tla -deadlock
+```bash
+$ cd ../automate
+$ python orchestrate.py
 ```
 
-As mentioned above, the desired output is an *error* along with a counterexample (this is just the supplied trace). If the model check is successful, then the behavior *does not* conform to the specification.
+The result for each log file is printed to stdout.

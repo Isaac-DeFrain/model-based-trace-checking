@@ -1,4 +1,4 @@
-# modules
+# tla
 
 This is where the TLA+ specification and all Java overrides are defined.
 
